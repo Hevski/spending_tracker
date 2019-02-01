@@ -23,8 +23,42 @@ class Tag
     @id = tag['id'].to_i
   end
 
-  #edit
+  def self.delete_all()
+    sql = "DELETE FROM tags"
+    SqlRunner.run(sql)
+  end
 
-  #delete
+  def delete()
+  sql = "DELETE FROM tags WHERE id = $1"
+  values = [@id]
+  SqlRunner.run(sql, values)
+end
+
+def self.all()
+  sql = "SELECT * FROM tags"
+  tags = SqlRunner.run(sql)
+  result = tags.map { |tag| Tag.new(tag) }
+  return result
+end
+
+def self.find(id)
+  sql = "SELECT * FROM tags WHERE id = $1"
+  values = [id]
+  result = SqlRunner.run(sql, values).first
+  tag = Tag.new(result)
+  return tag
+end
+
+def update()
+    sql = "UPDATE tags
+           SET category
+           = $1 WHERE
+           id = $2"
+    values = [@category, @id]
+    SqlRunner.run(sql, values)
+  end
+
+
+
 
 end
