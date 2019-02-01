@@ -1,1 +1,21 @@
 <h1>FinFrog</h1>
+<form method="post" action="/transactions">
+  <label for="transaction">Transaction Amount:</label>
+  <input type="text" name="transaction" id="transaction"/>
+
+  <label for="merchant-select">Select a Merchant:</label>
+  <select id="merchant" name="merchant_id">
+    <% @merchants.each do |merchant| %>
+      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+    <% end %>
+  </select>
+
+  <label for="tag-select">Select a Tag:</label>
+  <select id="tag" name="tag_id">
+    <% @tags.each do |tag| %>
+      <option value="<%= tag.id %>"><%= tag.name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Add Transaction"/>
+</form>
