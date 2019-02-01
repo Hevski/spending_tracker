@@ -33,5 +33,29 @@ class Merchant
     SqlRunner.run(sql, values)
   end
 
+  def self.all()
+    sql = "SELECT * FROM merchants"
+    merchants = SqlRunner.run(sql)
+    result = merchants.map { |merchant| Merchant.new(merchant) }
+    return result
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM merchants WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    merchant = Merchant.new(result)
+    return merchant
+  end
+
+  def update()
+      sql = "UPDATE merchants
+             SET name
+             = $1 WHERE
+             id = $2"
+      values = [@name, @id]
+      SqlRunner.run(sql, values)
+    end
+
 
 end
