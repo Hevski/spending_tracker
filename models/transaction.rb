@@ -52,4 +52,12 @@ class Transaction
     transaction = Transaction.new(result)
   end
 
+#not sure if these functions work - check on sat
+  # def merchant()
+  #   return Merchant.find(@merchant_id)
+  # end
+  #
+  # def tag()
+  #   return Tag.find(@tag_id)
+  # end
 end

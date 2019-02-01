@@ -11,7 +11,7 @@ class Tag
     @id = options['id'].to_i if options['id']
     @category = options['category']
   end
-
+#check that tag exists? if exists don’t add - sql save statement?
   def save()
     sql = "INSERT INTO tags
            (category)
@@ -56,8 +56,4 @@ def update()
     values = [@category, @id]
     SqlRunner.run(sql, values)
   end
-
-
-
-
 end

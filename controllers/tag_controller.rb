@@ -6,7 +6,7 @@ get '/tags' do
 end
 
 get '/tags/new' do
-  @houses = Tag.all()
+  @tags = Tag.all()
   erb(:"tags/new")
 end
 

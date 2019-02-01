@@ -55,7 +55,8 @@ class Merchant
              id = $2"
       values = [@name, @id]
       SqlRunner.run(sql, values)
-    end
+  end
+
 
 
 end

@@ -1,1 +1,9 @@
 <h1>ALL Transactions</h1>
+
+<% @transactions.each do |transaction| %>
+    <p>Merchant: <%= transaction.merchant.name %></p>
+    <p>Tag: <%= transaction.tag.category %></p>
+    <p>Amount <%= transaction.amount_spent %></p>
+<% end %>
+
+<!-- not displaying any transactions - needs work -->
