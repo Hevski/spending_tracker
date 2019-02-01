@@ -16,15 +16,15 @@ post '/tags' do
   erb(:"tags/create")
 end
 
-get '/tags/:id/delete' do
-  @tags = Tag.new(params[:id])
+get '/tags/:id/edit' do
+  @tags = Tag.find(params[:id])
   erb(:"tags/edit")
 end
 
 post '/tags/:id' do
   tag = Tag.new(params)
   tag.update
-  redirent '/tags'
+  redirect '/tags'
 end
 
 post '/tags/:id/delete' do

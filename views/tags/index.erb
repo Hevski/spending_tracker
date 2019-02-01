@@ -2,4 +2,5 @@
 
 <% @tags.each do |tag| %>
       <p>Category: <%= tag.category() %></p>
+      <a href="/tags/<%=tag.id%>/edit">Edit Tag</a>
 <% end %>
