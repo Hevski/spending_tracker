@@ -5,6 +5,7 @@ require('pry')
 
 Tag.delete_all()
 Merchant.delete_all()
+Transaction.delete_all()
 
 tag1 = Tag.new({'category' => 'Groceries'})
 tag1.save
@@ -19,6 +20,11 @@ merchant2 = Merchant.new({'name' => 'Cineworld'})
 merchant2.save()
 merchant3 = Merchant.new({'name' => 'Halloumi'})
 merchant3.save()
+
+transaction1 = Transaction.new(
+  {'merchant_id' => merchant1.id,
+   'tag_id' => tag1.id, 'amount_spent' => '20'})
+transaction1.save()
 
 
 binding.pry
