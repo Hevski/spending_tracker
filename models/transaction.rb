@@ -32,10 +32,24 @@ class Transaction
   end
 
   def self.all()
-  sql = "SELECT * FROM transactions"
-  transactions = SqlRunner.run(sql)
-  result = transactions.map { |transaction| Transaction.new(transaction) }
-  return result
-end
+    sql = "SELECT * FROM transactions"
+    transactions = SqlRunner.run(sql)
+    result = transactions.map { |transaction| Transaction.new(transaction) }
+    return result
+  end
+
+  # def self.find(transaction_date)
+  #   sql = "SELECT * FROM transactions WHERE transaction_date = $1"
+  #   values = [transaction_date]
+  #   result = SqlRunner.run(sql, values).first
+  #   transaction_date = Transaction.new(result)
+  # end
+
+  def self.find(id)
+    sql = "SELECT * FROM transactions WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    transaction = Transaction.new(result)
+  end
 
 end
