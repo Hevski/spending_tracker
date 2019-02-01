@@ -28,6 +28,6 @@ post '/tags/:id' do
 end
 
 post '/tags/:id/delete' do
-  @tags = Tags.find(params[:id]).delete
-  redirect '/delete'
+  @tags = Tag.find(params[:id]).delete
+  redirect '/tags'
 end
