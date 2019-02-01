@@ -12,7 +12,6 @@ class Tag
     @category = options['category']
   end
 
-  #create
   def save()
     sql = "INSERT INTO tags
            (category)
