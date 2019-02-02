@@ -8,7 +8,7 @@ class Merchant
   attr_accessor :name
 
   def initialize(options)
-    @id = options['id'].to_i() if options['id']
+    @id = options['id'].to_i if options['id']
     @name = options['name']
   end
 
@@ -57,6 +57,10 @@ class Merchant
       SqlRunner.run(sql, values)
   end
 
-
-
+  def transactions_for_merchant()
+    sql = "SELECT * from transactions WHERE merchant_id = $1"
+    values = [@id]
+    transactions = SqlRunner.run(sql, values)
+    return transactions.map { |transaction| Transaction.new(transaction) }
+  end
 end

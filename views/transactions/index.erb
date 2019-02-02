@@ -1,5 +1,6 @@
 <h1>ALL Transactions</h1>
 
+
 <% @transactions.each do |transaction| %>
     <p>Date: <%= transaction.transaction_date %></p>
     <p>Merchant: <%= transaction.merchant.name %></p>
@@ -12,3 +13,5 @@
 
 <h3>Total Transactions</h3>
 <p>Total: <%= Transaction.total_transactions %></p>
+
+<h3>Budget</h3>

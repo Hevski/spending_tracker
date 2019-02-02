@@ -1,6 +1,6 @@
 <h1>FinFrog</h1>
 
-<h2>Add New Transaction</h2>
+<h2>Add New Transaction:</h2>
 <form method="post" action="/transactions">
   <label for="amount_spent">Amount Spent:</label>
   <input type="number" name="amount_spent" id="amount_spent">
@@ -18,5 +18,13 @@
     <% end %>
   </select>
 
+  <input type="submit" value="Add">
+</form>
+
+<h2>Add Budget</h2>
+
+<form method="post" action="/transactions">
+  <label for="budget">budget:</label>
+  <input type="number" name="budget" id="budget">
   <input type="submit" value="Add">
 </form>

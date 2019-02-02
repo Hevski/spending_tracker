@@ -56,4 +56,11 @@ def update()
     values = [@category, @id]
     SqlRunner.run(sql, values)
   end
+
+  def transactions_for_tag()
+    sql = "SELECT * from transactions WHERE tag_id = $1"
+    values = [@id]
+    transactions = SqlRunner.run(sql, values)
+    return transactions.map { |transaction| Transaction.new(transaction) }
+  end
 end

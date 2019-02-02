@@ -1,5 +1,12 @@
 <h1>All Merchants</h1>
 
+<h3>Add New Merchant</h3>
+<form method="post" action="/merchants">
+  <label for="name">Merchant:</label>
+  <input type="text" name="name" id="name"/>
+  <input type="submit" value="Add Merchant"/>
+</form>
+
 <% @merchants.each do |merchant| %>
     <p>Merchant: <%= merchant.name() %></p>
     <a href="/merchants/<%=merchant.id%>/edit">Edit Merchant</a>

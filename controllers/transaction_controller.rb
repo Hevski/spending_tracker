@@ -23,11 +23,6 @@ post '/transactions/:id' do
   redirect '/transactions'
 end
 
-get '/transactions/total' do
-  @transactions = Transaction.all()
-  erb(:"transaction/index")
-end
-
 post '/transactions/:id/delete' do
   @transaction = Transaction.find(params[:id]).delete
   redirect '/transactions'

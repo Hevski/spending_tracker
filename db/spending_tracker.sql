@@ -1,6 +1,7 @@
 DROP TABLE transactions;
 DROP TABLE merchants;
 DROP TABLE tags;
+DROP TABLE users;
 
 
 CREATE TABLE merchants (
@@ -19,4 +20,9 @@ CREATE TABLE transactions (
   merchant_id INT4 REFERENCES merchants(id) ON DELETE CASCADE,
   tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE,
   amount_spent INT4
+);
+
+CREATE TABLE budgets (
+  id SERIAL4 PRIMARY KEY,
+  budget INT4
 );

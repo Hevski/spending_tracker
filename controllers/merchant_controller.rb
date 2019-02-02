@@ -8,7 +8,7 @@ end
 
 get '/merchants/new' do
   @merchants = Merchant.all()
-  erb(:"merchants/new")
+  erb(:"merchants/index")
 end
 
 post '/merchants' do

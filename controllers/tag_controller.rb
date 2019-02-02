@@ -7,7 +7,7 @@ end
 
 get '/tags/new' do
   @tags = Tag.all()
-  erb(:"tags/new")
+  erb(:"tags/index")
 end
 
 post '/tags' do
