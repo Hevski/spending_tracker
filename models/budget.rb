@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner.rb')
 require_relative('./transaction.rb')
+require_relative('./budget.rb')
 require ('pry')
 
 class Budget
@@ -42,12 +43,10 @@ class Budget
       values = [@budget, @id]
       SqlRunner.run(sql, values)
   end
-  #write function to minus amount_spent from budget
+
   def reduce_budget(transaction)
     if @budget >= Transaction.total_transactions
       @budget -= transaction.amount_spent
     end
   end
-
-
 end

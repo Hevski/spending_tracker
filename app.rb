@@ -13,5 +13,6 @@ also_reload('./models/*')
 get '/' do
   @merchants = Merchant.all()
   @tags = Tag.all()
+  #@budgets = Budget.all()
   erb(:home)
 end
