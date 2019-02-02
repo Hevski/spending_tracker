@@ -19,10 +19,9 @@ end
 
 post '/transactions/:id' do
   transaction = Transaction.new(params)
-  transaction.update
+  transaction.update()
   redirect '/transactions'
 end
-
 
 get '/transactions/total' do
   @transactions = Transaction.all()
