@@ -4,5 +4,8 @@
     <p>Date: <%= transaction.transaction_date %></p>
     <p>Merchant: <%= transaction.merchant.name %></p>
     <p>Tag: <%= transaction.tag.category %></p>
-    <p>Amount <%= transaction.amount_spent %></p>
+    <p>Amount: <%= transaction.amount_spent %></p>
 <% end %>
+
+<h3>Total Transactions</h3>
+<p>Total: <%= Transaction.total_transactions %></p>

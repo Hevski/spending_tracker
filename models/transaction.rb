@@ -13,7 +13,7 @@ class Transaction
     @transaction_date = options['transaction_date'] if options['transaction_date']
     @merchant_id = options['merchant_id'].to_i
     @tag_id = options['tag_id'].to_i
-    @amount_spent = options['amount_spent']
+    @amount_spent = options['amount_spent'].to_i
   end
 
   def save()
@@ -47,12 +47,18 @@ class Transaction
     transaction = Transaction.new(result)
   end
 
-#not sure if these functions work - check on sat
   def merchant()
     return Merchant.find(@merchant_id)
   end
 
   def tag()
     return Tag.find(@tag_id)
+  end
+
+  def self.total_transactions()
+    total = 0
+    total_transactions = Transaction.all()
+    total_transactions.each { |transaction| total += transaction.amount_spent }
+    return total
   end
 end
