@@ -43,8 +43,10 @@ class Budget
       SqlRunner.run(sql, values)
   end
   #write function to minus amount_spent from budget
-  def reduce_budget()
-
+  def reduce_budget(transaction)
+    if @budget >= Transaction.total_transactions
+      @budget -= transaction.amount_spent
+    end
   end
 
 
