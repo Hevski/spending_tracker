@@ -1,6 +1,7 @@
 require_relative('../db/sql_runner.rb')
 require_relative('./tag.rb')
 require_relative('./merchant.rb')
+require ('pry')
 
 class Transaction
 
@@ -9,7 +10,7 @@ class Transaction
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @transaction_date = options['date'] if options['date']
+    @transaction_date = options['transaction_date'] if options['transaction_date']
     @merchant_id = options['merchant_id'].to_i
     @tag_id = options['tag_id'].to_i
     @amount_spent = options['amount_spent']
@@ -19,11 +20,11 @@ class Transaction
     sql = "INSERT INTO transactions
     (merchant_id, tag_id, amount_spent)
     VALUES ($1, $2, $3)
-    RETURNING id, transaction_date"
+    RETURNING transaction_date, id"
     values = [@merchant_id, @tag_id, @amount_spent]
     transaction = SqlRunner.run(sql, values).first
-    @id = transaction['id'].to_i
     @transaction_date = transaction['transaction_date']
+    @id = transaction['id'].to_i
   end
 
   def self.delete_all()
@@ -35,15 +36,9 @@ class Transaction
     sql = "SELECT * FROM transactions"
     transactions = SqlRunner.run(sql)
     result = transactions.map { |transaction| Transaction.new(transaction) }
+    # binding.pry
     return result
   end
-
-  # def self.find(transaction_date)
-  #   sql = "SELECT * FROM transactions WHERE transaction_date = $1"
-  #   values = [transaction_date]
-  #   result = SqlRunner.run(sql, values).first
-  #   transaction_date = Transaction.new(result)
-  # end
 
   def self.find(id)
     sql = "SELECT * FROM transactions WHERE id = $1"
@@ -53,11 +48,11 @@ class Transaction
   end
 
 #not sure if these functions work - check on sat
-  # def merchant()
-  #   return Merchant.find(@merchant_id)
-  # end
-  #
-  # def tag()
-  #   return Tag.find(@tag_id)
-  # end
+  def merchant()
+    return Merchant.find(@merchant_id)
+  end
+
+  def tag()
+    return Tag.find(@tag_id)
+  end
 end
