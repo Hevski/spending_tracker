@@ -20,3 +20,17 @@
 
   <input type="submit" value="Add">
 </form>
+
+<h3>Total Transactions</h3>
+<p>Total: <%= Transaction.total_transactions %></p>
+
+<h3>Total Budget</h3>
+<p>Total: <%= Budget.total_budget %></p>
+
+<h2>Alert Messages</h2>
+<% if Transaction.total_transactions >= Budget.total_budget %>
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Warning!</strong> You are almost at your total budget limit!
+</div>
+<% end %>
