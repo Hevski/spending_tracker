@@ -4,6 +4,12 @@
   color: white;
 }
 
+.amber-alert {
+  padding: 20px;
+  background-color: orange;
+  color: white;
+}
+
 .closebtn {
   margin-left: 15px;
   color: white;
