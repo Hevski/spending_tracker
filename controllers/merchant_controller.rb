@@ -14,7 +14,8 @@ end
 post '/merchants' do
   @merchants = Merchant.new(params)
   @merchants.save()
-  erb(:"merchants/create")
+  redirect '/merchants'
+  #erb(:"merchants/create")
 end
 
 get '/merchants/:id/edit' do

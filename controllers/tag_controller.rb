@@ -13,7 +13,8 @@ end
 post '/tags' do
   @tags = Tag.new(params)
   @tags.save()
-  erb(:"tags/create")
+  redirect '/tags'
+  #erb(:"tags/create")
 end
 
 get '/tags/:id/edit' do

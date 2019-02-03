@@ -25,5 +25,6 @@ CREATE TABLE transactions (
 CREATE TABLE budgets (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255),
-  budget INT4
+  budget INT4,
+  tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE
 );

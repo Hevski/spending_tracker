@@ -1,14 +1,16 @@
 require_relative('../models/budget')
-#require_relative('../models/transaction')
+require_relative('../models/tag')
 require ('pry')
 
 get '/budgets' do
   @budget = Budget.all()
+  @tags = Tag.all()
   erb(:"budgets/index")
 end
 
 get '/budgets/new' do
   @budget = Budget.all()
+  @tags = Tag.all()
   erb(:"budgets/index")
 end
 

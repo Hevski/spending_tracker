@@ -1,7 +1,12 @@
 <h2>Add New Budget</h2>
 <form method="post" action="/budgets">
   <label for="name">Budget Name:</label>
-  <input type="text" name="name" id="name"/>
+
+  <select name="tag_id" id="tag_id">
+    <% @tags.each do |tag| %>
+    <option value="<%= tag.id %>"><%= tag.category %></option>
+    <% end %>
+  </select>
 
 
   <label for="budget">Budget Amount:</label>
@@ -14,7 +19,7 @@
 <h1>Budgets</h1>
 
 <% @budget.each do |budget| %>
-      <p>Name: <%= budget.name %></p>
+      <p>Tag: <%= budget.tag.category %></p>
       <p>Budget: <%= budget.budget() %></p>
       <a href="/budgets/<%=budget.id%>/edit">Edit Budget</a>
       <form action="/budgets/<%= budget.id %>/delete" method="post">

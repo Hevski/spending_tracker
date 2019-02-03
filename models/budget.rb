@@ -6,21 +6,22 @@ require ('pry')
 class Budget
 
   attr_reader :id
-  attr_accessor :budget, :name
+  attr_accessor :budget, :name, :tag_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @budget = options['budget'].to_i
+    @tag_id = options['tag_id'].to_i
     #@budget = 0???
   end
 
   def save()
     sql = "INSERT INTO budgets
-           (name, budget)
-           VALUES ($1, $2)
+           (name, budget, tag_id)
+           VALUES ($1, $2, $3)
            RETURNING id"
-    values = [@name, @budget]
+    values = [@name, @budget, @tag_id]
     budget = SqlRunner.run(sql, values).first
     @id = budget['id'].to_i
   end
@@ -45,10 +46,10 @@ class Budget
 
   def update()
       sql = "UPDATE budgets
-             SET (name, budget)
-             = ($1, $2) WHERE
-             id = $3"
-      values = [@name, @budget, @id]
+             SET (name, budget, tag_id)
+             = ($1, $2, $3) WHERE
+             id = $4"
+      values = [@name, @budget, @tag_id, @id]
       SqlRunner.run(sql, values)
   end
 
@@ -58,6 +59,10 @@ class Budget
     result = SqlRunner.run(sql, values).first
     budget = Budget.new(result)
     return budget
+  end
+
+  def tag()
+    return Tag.find(@tag_id)
   end
 
   # def reduce_budget(transaction)

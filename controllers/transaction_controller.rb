@@ -11,7 +11,8 @@ end
 post '/transactions' do
   @transactions = Transaction.new(params)
   @transactions.save()
-  erb(:"transactions/create")
+  redirect '/transactions'
+  #erb(:"transactions/create")
 end
 
 get '/transactions/:id/edit' do
