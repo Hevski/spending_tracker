@@ -25,3 +25,6 @@
       <form action="/budgets/<%= budget.id %>/delete" method="post">
         <input type="submit" value="Delete"></form>
 <% end %>
+
+<h3>Total Budget</h3>
+<p>Total: <%= Budget.total_budget %></p>

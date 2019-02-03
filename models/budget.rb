@@ -65,6 +65,13 @@ class Budget
     return Tag.find(@tag_id)
   end
 
+  def self.total_budget()
+    total = 0
+    total_budget = Budget.all()
+    total_budget.each { |budget| total += budget.budget }
+    return total
+  end
+
   # def reduce_budget(transaction)
   #   if @budget >= Transaction.total_transactions
   #     @budget -= transaction.amount_spent
