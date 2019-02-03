@@ -78,6 +78,16 @@ class Transaction
     return total
   end
 
+  def hit_budget()
+    total_transactions = Transaction.all()
+    total_budget = Budgt.all()
+    if total_transactions >= total_budget
+      #alert?
+  end
+end
+
+
+
 #budget
 
 end
