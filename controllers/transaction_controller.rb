@@ -1,8 +1,10 @@
 require_relative('../models/transaction')
+require_relative('../models/budget')
 require ('pry')
 
 get '/transactions' do
   @transactions = Transaction.all()
+  @budget = Budget.all()
   erb(:"transactions/index")
 end
 

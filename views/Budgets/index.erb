@@ -1,0 +1,22 @@
+<h2>Add New Budget</h2>
+<form method="post" action="/budgets">
+  <label for="name">Budget Name:</label>
+  <input type="text" name="name" id="name"/>
+
+
+  <label for="budget">Budget Amount:</label>
+  <input type="number" name="budget" id="budget">
+
+  <input type="submit" value="Add Budget"/>
+
+</form>
+
+<h1>Budgets</h1>
+
+<% @budget.each do |budget| %>
+      <p>Name: <%= budget.name %></p>
+      <p>Budget: <%= budget.budget() %></p>
+      <a href="/budgets/<%=budget.id%>/edit">Edit Budget</a>
+      <form action="/budgets/<%= budget.id %>/delete" method="post">
+        <input type="submit" value="Delete"></form>
+<% end %>

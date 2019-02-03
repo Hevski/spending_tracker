@@ -40,7 +40,7 @@ transaction3 = Transaction.new(
    'amount_spent' => '45' })
 transaction3.save()
 
-budget = Budget.new({'budget' => '200'})
+budget = Budget.new({'name' => 'Groceries Budget', 'budget' => '200'})
 budget.save()
 
 binding.pry

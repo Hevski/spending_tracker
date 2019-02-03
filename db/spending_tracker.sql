@@ -1,7 +1,7 @@
 DROP TABLE transactions;
 DROP TABLE merchants;
 DROP TABLE tags;
-DROP TABLE users;
+DROP TABLE budgets;
 
 
 CREATE TABLE merchants (
@@ -24,5 +24,6 @@ CREATE TABLE transactions (
 
 CREATE TABLE budgets (
   id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255),
   budget INT4
 );
