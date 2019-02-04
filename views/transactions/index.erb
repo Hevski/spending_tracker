@@ -16,8 +16,7 @@
 <% end %>
 
 <!-- filter by: (drop down tags) (drop down mercchants)
-(filters by chosen tag or merchant)
-warning pop ups when reaching target for each category?  -->
+(filters by chosen tag or merchant)  -->
 
 
 <% @transactions.each do |transaction| %>
@@ -32,7 +31,10 @@ warning pop ups when reaching target for each category?  -->
 
 <h3>Total Transactions</h3>
 <p>Total: <%= Transaction.total_transactions %></p>
-<p>Total: </p>
+<% @tags.each do |tag| %>
+  <p>Catgory: <%= tag.category %> </p>
+  <p>Total: <%= tag.total_for_tags %></p>
+<% end %> </p>
 
 <h3>Total Budget</h3>
 <p>Total: <%= Budget.total_budget %></p>

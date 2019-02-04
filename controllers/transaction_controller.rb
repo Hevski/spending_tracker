@@ -5,6 +5,7 @@ require ('pry')
 get '/transactions' do
   @transactions = Transaction.all()
   @budget = Budget.all()
+  @tags = Tag.all()
   erb(:"transactions/index")
 end
 
