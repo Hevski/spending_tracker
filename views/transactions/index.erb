@@ -1,3 +1,4 @@
+<br>
 <h1>All Transactions</h1>
 <div>
    <form method="get" action="/transactions/search/merchant">
@@ -9,8 +10,8 @@
     <input type="submit" value="Search"/>
     </select>
     </form>
+    <br>
 </div>
-
     <form method="get" action="/transactions/search/tag">
       <label for="tag_id">Search by Tag:</label>
       <select name="id" id="tag_id">
@@ -20,8 +21,18 @@
      <input type="submit" value="Search"/>
      </select>
      </form>
-
-
+     <br>
+<table id="transactions">
+<tr>
+  <th>Total Amount Spent</th>
+  <th>Maximum Budget</th>
+</tr>
+<tr>
+  <td>£<%= Transaction.total_transactions %></td>
+  <td>£<%= Budget.total_budget %></td>
+</tr>
+</table>
+<br>
 <% if Transaction.total_transactions >= Budget.total_budget %>
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -34,33 +45,37 @@
   <strong>Warning!</strong> You are almost at your total budget limit!
 </div>
 <% end %>
-<div class="transaction-heading">
-  <li><h2>Date</h2></li>
-  <li><h2>Merchant</h2></li>
-  <li><h2>Tag</h2></li>
-  <li><h2>Amount</h2></li>
-  </div>
-<div class="flex-container">
+<table id="transactions">
+  <tr>
+    <th>Date</th>
+    <th>Merchant</th>
+    <th>Tag</th>
+    <th>Amount</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
 <% @transactions.each do |transaction| %>
-<div class="transactions">
-    <li><p>Date: <%= transaction.transaction_date %></p></li>
-    <li><p>Merchant: <%= transaction.merchant.name %></p></li>
-    <li><p>Tag: <%= transaction.tag.category %></p></li>
-    <li><p>Amount: <%= transaction.amount_spent %></p></li>
-    <li><a href="/transactions/<%=transaction.id%>/edit">Edit</a></li>
-    <li><form action="/transactions/<%= transaction.id %>/delete" method="post">
-    <input type="submit" value="Delete"/></form></li>
-</div>
+  <tr>
+    <td><p><%= transaction.transaction_date %></p></td>
+    <td><p><%= transaction.merchant.name %></p></td>
+    <td><p><%= transaction.tag.category %></p></td>
+    <td><p>£<%= transaction.amount_spent %></p></td>
+    <td><div class="edit-delete"><a href="/transactions/<%=transaction.id%>/edit">Edit</a></td>
+    <form action="/transactions/<%= transaction.id %>/delete" method="post">
+    <td><input type="submit" value="Delete"/></td></form>
+  </tr>
 <% end %>
-</div>
-<h3>Total Transactions</h3>
-<p>Total: <%= Transaction.total_transactions %></p>
+</table>
+<table id="transactions">
+<tr>
+  <br>
+    <th>Category</th>
+    <th>Total</th>
+  </tr>
 <% @tags.each do |tag| %>
-  <p>Catgory: <%= tag.category %> </p>
-  <p>Total: <%= tag.total_for_tags %></p>
-<% end %> </p>
-
-<h3>Total Budget</h3>
-<p>Total: <%= Budget.total_budget %></p>
-
-<!-- add some logic here to add each category total spent -->
+<tr>
+    <td><p><%= tag.category %></p></td>
+    <td><p><%= tag.total_for_tags %></p></td>
+</tr>
+<% end %>
+</table>
