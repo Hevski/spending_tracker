@@ -18,7 +18,6 @@ post '/budgets' do
   @budget = Budget.new(params)
   @budget.save()
   redirect '/budgets'
-  #erb(:"budgets/create")
 end
 
 get '/budgets/:id/edit' do

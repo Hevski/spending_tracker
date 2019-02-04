@@ -1,3 +1,35 @@
+* {
+  font-family: 'Lato', sans-serif;
+  margin-top: 0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 50px;
+  text-align: center;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* .main {
+  background-image: url('/images/FinFrogpark4.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+} */
+
+
+/* .bg {
+  background-image: url('/images/FinFrogpark4.jpg');
+  height: 100%;
+  width: 100%;
+
+} */
+
 .alert {
   padding: 20px;
   background-color: #f44336;
@@ -23,4 +55,72 @@
 
 .closebtn:hover {
   color: black;
+}
+
+.topnav {
+  display: flex;
+  box-sizing: border-box;
+  background-color: #009494;
+  font-size: 16px;
+  font-family: sans-serif;
+  padding-top: 5px;
+  border: 3px solid;
+  justify-content: center;
+  margin: 0px;
+  flex-wrap: wrap;
+}
+
+.topnav ul {
+  display: flex;
+  flex-direction: row;
+  background-color: #009494;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.topnav href {
+  padding: 5px;
+}
+
+.topnav li {
+  display: flex;
+  padding: 10px;
+  padding-top: 17px;
+}
+
+.topnav a {
+  text-decoration: none;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+
+
+.transaction-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.transactions {
+  display: inline-flex;
+}
+
+.transactions li {
+  display: flex;
+  padding: 5px;
+  padding-top: 17px;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+
+
+.transaction-heading li {
+  list-style: none;
 }

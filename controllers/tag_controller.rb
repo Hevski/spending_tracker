@@ -14,7 +14,6 @@ post '/tags' do
   @tags = Tag.new(params)
   @tags.save()
   redirect '/tags'
-  #erb(:"tags/create")
 end
 
 get '/tags/:id/edit' do

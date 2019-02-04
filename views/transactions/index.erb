@@ -1,5 +1,5 @@
-<h1>ALL Transactions</h1>
-
+<h1>All Transactions</h1>
+<div>
    <form method="get" action="/transactions/search/merchant">
      <label for="merchant_id">Search by Merchant:</label>
      <select name="id" id="merchant_id">
@@ -9,6 +9,7 @@
     <input type="submit" value="Search"/>
     </select>
     </form>
+</div>
 
     <form method="get" action="/transactions/search/tag">
       <label for="tag_id">Search by Tag:</label>
@@ -33,21 +34,25 @@
   <strong>Warning!</strong> You are almost at your total budget limit!
 </div>
 <% end %>
-
-<!-- filter by: (drop down tags) (drop down mercchants)
-(filters by chosen tag or merchant)  -->
-
-
+<div class="transaction-heading">
+  <li><h2>Date</h2></li>
+  <li><h2>Merchant</h2></li>
+  <li><h2>Tag</h2></li>
+  <li><h2>Amount</h2></li>
+  </div>
+<div class="flex-container">
 <% @transactions.each do |transaction| %>
-    <p>Date: <%= transaction.transaction_date %></p>
-    <p>Merchant: <%= transaction.merchant.name %></p>
-    <p>Tag: <%= transaction.tag.category %></p>
-    <p>Amount: <%= transaction.amount_spent %></p>
-    <a href="/transactions/<%=transaction.id%>/edit">Edit</a>
-    <form action="/transactions/<%= transaction.id %>/delete" method="post">
-    <input type="submit" value="Delete"/></form>
+<div class="transactions">
+    <li><p>Date: <%= transaction.transaction_date %></p></li>
+    <li><p>Merchant: <%= transaction.merchant.name %></p></li>
+    <li><p>Tag: <%= transaction.tag.category %></p></li>
+    <li><p>Amount: <%= transaction.amount_spent %></p></li>
+    <li><a href="/transactions/<%=transaction.id%>/edit">Edit</a></li>
+    <li><form action="/transactions/<%= transaction.id %>/delete" method="post">
+    <input type="submit" value="Delete"/></form></li>
+</div>
 <% end %>
-
+</div>
 <h3>Total Transactions</h3>
 <p>Total: <%= Transaction.total_transactions %></p>
 <% @tags.each do |tag| %>
