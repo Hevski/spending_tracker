@@ -1,9 +1,11 @@
 <h1>ALL Transactions</h1>
 
+<a href="/">Add Transaction</a>
+
 <% if Transaction.total_transactions >= Budget.total_budget %>
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-  <strong>Warning!</strong> You are almost at your total budget limit!
+  <strong>Warning!</strong> You have exceeded your total budget!
 </div>
 <% end %>
 <% if Transaction.total_transactions >= (Budget.total_budget / 100 * 75) && Transaction.total_transactions <= Budget.total_budget%>
@@ -14,7 +16,8 @@
 <% end %>
 
 <!-- filter by: (drop down tags) (drop down mercchants)
-(filters by chosen tag or merchant)  -->
+(filters by chosen tag or merchant)
+warning pop ups when reaching target for each category?  -->
 
 
 <% @transactions.each do |transaction| %>

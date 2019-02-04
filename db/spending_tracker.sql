@@ -1,8 +1,7 @@
 DROP TABLE transactions;
 DROP TABLE merchants;
-DROP TABLE tags;
 DROP TABLE budgets;
-
+DROP TABLE tags;
 
 CREATE TABLE merchants (
   id SERIAL4 PRIMARY KEY,

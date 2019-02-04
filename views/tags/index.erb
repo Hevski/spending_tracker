@@ -11,5 +11,7 @@
       <p>Category: <%= tag.category() %></p>
       <a href="/tags/<%=tag.id%>/edit">Edit Tag</a>
       <form action="/tags/<%= tag.id %>/delete" method="post">
-      <input type="submit" value="Delete"/></form>
+      <input type="submit" value="Delete" class="btn btn-link"
+      onclick="if (!confirm('Deleting this tag will delete all associated transactions, are you sure you want to delete?')) { return false }">
+    </form>
 <% end %>

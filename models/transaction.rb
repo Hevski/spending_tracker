@@ -77,13 +77,6 @@ class Transaction
     total_transactions.each { |transaction| total += transaction.amount_spent }
     return total
   end
-
-  def hit_budget()
-    total_transactions = Transaction.all()
-    total_budget = Budgt.all()
-    if total_transactions >= total_budget
-      #alert?
-  end
 end
 
 

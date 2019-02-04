@@ -30,8 +30,3 @@ post '/transactions/:id/delete' do
   @transaction = Transaction.find(params[:id]).delete
   redirect '/transactions'
 end
-
-get '/' do
-  flash[:alert] = "Hooray, Flash is working!"
-  erb :index
-end

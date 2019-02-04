@@ -21,6 +21,12 @@
 <% @budget.each do |budget| %>
       <p>Tag: <%= budget.tag.category %></p>
       <p>Budget: <%= budget.budget() %></p>
+      <% if Transaction.total_transactions >= Budget.total_budget %>
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Warning!</strong> You have exceeded your total budget!
+      </div>
+      <% end %>
       <a href="/budgets/<%=budget.id%>/edit">Edit Budget</a>
       <form action="/budgets/<%= budget.id %>/delete" method="post">
         <input type="submit" value="Delete"></form>
