@@ -72,17 +72,7 @@ class Budget
     return total
   end
 
-  # def reduce_budget(transaction)
-  #   if @budget >= Transaction.total_transactions
-  #     @budget -= transaction.amount_spent
-  #   end
-  # end
-  #
-  # def self.total_budget()
-  #   new_budget = 0
-  #   total_budget = Budget.all()
-  #   total_budget.each { |budget| new_budget += budget.budget }
-  #   #binding.pry
-  #   return new_budget
-  # end
+  def individual_budget
+  end
+
 end

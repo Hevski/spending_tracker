@@ -8,7 +8,7 @@
   <strong>Warning!</strong> You have exceeded your total budget!
 </div>
 <% end %>
-<% if Transaction.total_transactions >= (Budget.total_budget / 100 * 75) && Transaction.total_transactions <= Budget.total_budget%>
+<% if Transaction.total_transactions >= (Budget.total_budget / 100 * 75) && Transaction.total_transactions <= Budget.total_budget %>
 <div class="amber-alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   <strong>Warning!</strong> You are almost at your total budget limit!
@@ -32,6 +32,9 @@ warning pop ups when reaching target for each category?  -->
 
 <h3>Total Transactions</h3>
 <p>Total: <%= Transaction.total_transactions %></p>
+<p>Total: </p>
 
 <h3>Total Budget</h3>
 <p>Total: <%= Budget.total_budget %></p>
+
+<!-- add some logic here to add each category total spent -->

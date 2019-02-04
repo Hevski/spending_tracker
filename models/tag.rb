@@ -64,4 +64,12 @@ def update()
     transactions = SqlRunner.run(sql, values)
     return transactions.map { |transaction| Transaction.new(transaction) }
   end
+
+  def total_for_tags()
+    total = 0
+    transactions = transactions_for_tag()
+    transactions.each { |transaction| total += transaction.amount_spent()}
+    return total
+  end
+
 end
