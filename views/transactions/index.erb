@@ -1,6 +1,6 @@
 <h1>ALL Transactions</h1>
 
-   <form method="get" action="/transactions/search">
+   <form method="get" action="/transactions/search/merchant">
      <label for="merchant_id">Search by Merchant:</label>
      <select name="id" id="merchant_id">
        <% @merchants.each do |merchant| %>
@@ -9,6 +9,16 @@
     <input type="submit" value="Search"/>
     </select>
     </form>
+
+    <form method="get" action="/transactions/search/tag">
+      <label for="tag_id">Search by Tag:</label>
+      <select name="id" id="tag_id">
+        <% @tags.each do |tag| %>
+        <option value="<%= tag.id %>"><%= tag.category %></option>
+        <% end %>
+     <input type="submit" value="Search"/>
+     </select>
+     </form>
 
 
 <% if Transaction.total_transactions >= Budget.total_budget %>

@@ -33,8 +33,14 @@ post '/transactions/:id/delete' do
   redirect '/transactions'
 end
 
-get '/transactions/search' do
+get '/transactions/search/merchant' do
   @merchant = Merchant.find(params['id'])
   @transactions = @merchant.transactions_for_merchant()
+  erb (:"transactions/search")
+end
+
+get '/transactions/search/tag' do
+  @tag = Tag.find(params['id'])
+  @transactions = @tag.transactions_for_tag()
   erb (:"transactions/search")
 end
