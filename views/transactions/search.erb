@@ -1,0 +1,10 @@
+<h1>Transactions:</h1>
+<% @transactions.each do |transaction| %>
+    <p>Date: <%= transaction.transaction_date %></p>
+    <p>Merchant: <%= transaction.merchant.name %></p>
+    <p>Tag: <%= transaction.tag.category %></p>
+    <p>Amount: <%= transaction.amount_spent %></p>
+    <a href="/transactions/<%=transaction.id%>/edit">Edit</a>
+    <form action="/transactions/<%= transaction.id %>/delete" method="post">
+    <input type="submit" value="Delete"/></form>
+<% end %>

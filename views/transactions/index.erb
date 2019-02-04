@@ -1,6 +1,15 @@
 <h1>ALL Transactions</h1>
 
-<a href="/">Add Transaction</a>
+   <form method="get" action="/transactions/search">
+     <label for="merchant_id">Search by Merchant:</label>
+     <select name="id" id="merchant_id">
+       <% @merchants.each do |merchant| %>
+       <option value="<%= merchant.id %>"><%= merchant.name %></option>
+       <% end %>
+    <input type="submit" value="Search"/>
+    </select>
+    </form>
+
 
 <% if Transaction.total_transactions >= Budget.total_budget %>
 <div class="alert">

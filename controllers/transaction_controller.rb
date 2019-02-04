@@ -6,6 +6,7 @@ get '/transactions' do
   @transactions = Transaction.all()
   @budget = Budget.all()
   @tags = Tag.all()
+  @merchants = Merchant.all()
   erb(:"transactions/index")
 end
 
@@ -30,4 +31,10 @@ end
 post '/transactions/:id/delete' do
   @transaction = Transaction.find(params[:id]).delete
   redirect '/transactions'
+end
+
+get '/transactions/search' do
+  @merchant = Merchant.find(params['id'])
+  @transactions = @merchant.transactions_for_merchant()
+  erb (:"transactions/search")
 end
