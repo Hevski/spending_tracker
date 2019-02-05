@@ -25,7 +25,7 @@ merchant3.save()
 
 transaction1 = Transaction.new(
   {'merchant_id' => merchant1.id,
-   'tag_id' => tag1.id, 'amount_spent' => '20'})
+   'tag_id' => tag1.id, 'amount_spent' => '70'})
 transaction1.save()
 
 transaction2 = Transaction.new(
@@ -40,11 +40,23 @@ transaction3 = Transaction.new(
    'amount_spent' => '45' })
 transaction3.save()
 
-budget = Budget.new(
-  {'name' => 'Groceries Budget',
-   'budget' => '200',
+budget1 = Budget.new(
+  {'name' => 'Groceries',
+   'budget' => '100',
    'tag_id' => tag1.id})
-budget.save()
+budget1.save()
+
+budget2 = Budget.new(
+  {'name' => 'Entertainment',
+   'budget' => '100',
+   'tag_id' => tag2.id})
+budget2.save()
+
+budget3 = Budget.new(
+  {'name' => 'Eating Out',
+   'budget' => '100',
+   'tag_id' => tag3.id})
+budget3.save()
 
 binding.pry
 nil

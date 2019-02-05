@@ -23,6 +23,18 @@ h2 {
   size: 30px;
 }
 
+.labels input {
+  font-size: 16px;
+}
+
+.labels select {
+  font-size: 17px;
+}
+
+.labels label {
+  font-size: 22px;
+}
+
 /* html, body {
   margin: 0;
   min-height: 100vh;
@@ -37,9 +49,11 @@ h2 {
 }
 
 .alert {
-  padding: 9px;
+  padding: 25px;
   background-color: #f44336;
   color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
 }
 
 .amber-alert {
@@ -84,6 +98,8 @@ h2 {
   flex-wrap: wrap;
 }
 
+
+
 .topnav href {
   padding: 5px;
 }
@@ -97,12 +113,29 @@ h2 {
 .topnav a {
   text-decoration: none;
   color: #6dffed;
+  font-size: x-large;
+}
+
+.topnav a:hover {
+  color: #0131b0;
 }
 
 .add-transaction {
   display: flex;
   flex-direction: column;
+}
 
+.add-transaction label {
+  font-size: 21px;
+}
+
+.add-transaction select {
+  font-size: 19px;
+}
+
+.add-transaction input {
+  font-size: 16px;
+  margin-top: 4px;
 }
 
 .form {
@@ -121,6 +154,10 @@ h2 {
 #transactions {
   border-collapse: collapse;
   width: 100%;
+}
+
+#transactions a {
+  text-decoration: none;
 }
 
 #transactions td, #transactions th {
@@ -171,6 +208,10 @@ h2 {
   color: #ffffff;
 }
 
+#center-tables a {
+  text-decoration: none;
+}
+
 #budget-table {
     display: flex;
     vertical-align: middle;
@@ -188,6 +229,10 @@ h2 {
 #budget-table td, #budget-table th {
   border: 1px solid #dadada;
   padding: 8px;
+}
+
+#budget-table a {
+  text-decoration: none;
 }
 
 #budget-table tr:nth-child(even){background-color: #f2f2f2;}

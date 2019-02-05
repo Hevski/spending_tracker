@@ -18,7 +18,7 @@
 <% @merchants.each do |merchant| %>
 <tr>
   <td><p><%= merchant.name() %></p></td>
-  <td><a href="/merchants/<%=merchant.id%>/edit">Edit Merchant</a></td>
+  <td><a href="/merchants/<%=merchant.id%>/edit">Edit</a></td>
   <td><form action="/merchants/<%= merchant.id %>/delete" method="post">
     <input type="submit" value="Delete" class="btn btn-link"
     onclick="if (!confirm('Deleting this merchant will delete all associated transactions, are you sure you want to delete?')) { return false }">

@@ -20,7 +20,7 @@
 <% @tags.each do |tag| %>
 <tr>
   <td><p><%= tag.category() %></p></td>
-  <td><a href="/tags/<%=tag.id%>/edit">Edit Tag</a></td>
+  <td><a href="/tags/<%=tag.id%>/edit">Edit</a></td>
   <td><form action="/tags/<%= tag.id %>/delete" method="post">
     <input type="submit" value="Delete" class="btn btn-link"
     onclick="if (!confirm('Deleting this tag will delete all associated transactions, are you sure you want to delete?')) { return false }">

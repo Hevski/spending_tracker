@@ -37,20 +37,20 @@
   <tr>
       <td><p><%= budget.tag.category %></p></td>
       <td><p><%= budget.budget() %></p></td>
-      <td><% if budget.budget <= budget.tag.total_for_tags %>
+      <td><% if budget.tag.total_for_tags >= budget.budget %>
       <div class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Warning!</strong> You have exceeded your total budget!
       </div>
       <% end %>
-      <% if (budget.budget / 100 * 75) <= budget.tag.total_for_tags && budget.budget >= budget.tag.total_for_tags  %>
+      <% if budget.tag.total_for_tags >= (budget.budget / 100 * 75) && budget.tag.total_for_tags <= budget.budget %>
       <div class="amber-alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Warning!</strong> You are close to your budget!
       </div>
       <% end %>
         </td>
-        <td><a href="/budgets/<%=budget.id%>/edit">Edit Budget</a></td>
+        <td><a href="/budgets/<%=budget.id%>/edit">Edit</a></td>
         <td><form action="/budgets/<%= budget.id %>/delete" method="post">
         <input type="submit" value="Delete"></form></td>
   </tr>
