@@ -1,6 +1,6 @@
 <br>
 <h1>All Transactions</h1>
-<div>
+<div class="labels">
    <form method="get" action="/transactions/search/merchant">
      <label for="merchant_id">Search by Merchant:</label>
      <select name="id" id="merchant_id">
@@ -12,6 +12,7 @@
     </form>
     <br>
 </div>
+<div class="labels">
     <form method="get" action="/transactions/search/tag">
       <label for="tag_id">Search by Tag:</label>
       <select name="id" id="tag_id">
@@ -22,7 +23,8 @@
      </select>
      </form>
      <br>
-<table id="transactions">
+</div>
+<table id="center-tables">
 <tr>
   <th>Total Amount Spent</th>
   <th>Maximum Budget</th>

@@ -1,17 +1,29 @@
 <h1>All Tags</h1>
 
 <h2>Add New Tag</h2>
-<form method="post" action="/tags">
-  <label for="category">Category:</label>
-  <input type="text" name="category" id="category"/>
-  <input type="submit" value="Add Tag"/>
-</form>
+<div class="labels">
+  <form method="post" action="/tags">
+    <label for="category">Category:</label>
+    <input type="text" name="category" id="category"/>
+    <input type="submit" value="Add Tag"/>
+  </form>
+</div>
 
+
+<table id="center-tables">
+<tr>
+  <br>
+    <th>Category</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
 <% @tags.each do |tag| %>
-      <p>Category: <%= tag.category() %></p>
-      <a href="/tags/<%=tag.id%>/edit">Edit Tag</a>
-      <form action="/tags/<%= tag.id %>/delete" method="post">
-      <input type="submit" value="Delete" class="btn btn-link"
-      onclick="if (!confirm('Deleting this tag will delete all associated transactions, are you sure you want to delete?')) { return false }">
-    </form>
+<tr>
+  <td><p><%= tag.category() %></p></td>
+  <td><a href="/tags/<%=tag.id%>/edit">Edit Tag</a></td>
+  <td><form action="/tags/<%= tag.id %>/delete" method="post">
+    <input type="submit" value="Delete" class="btn btn-link"
+    onclick="if (!confirm('Deleting this tag will delete all associated transactions, are you sure you want to delete?')) { return false }">
+  </form></td>
+</tr>
 <% end %>

@@ -1,17 +1,27 @@
 <h1>All Merchants</h1>
 
-<h3>Add New Merchant</h3>
-<form method="post" action="/merchants">
-  <label for="name">Merchant:</label>
-  <input type="text" name="name" id="name"/>
-  <input type="submit" value="Add Merchant"/>
-</form>
-
+<h2>Add New Merchant</h2>
+<div class="labels">
+  <form method="post" action="/merchants">
+    <label for="name">Merchant:</label>
+    <input type="text" name="name" id="name"/>
+    <input type="submit" value="Add Merchant"/>
+  </form>
+</div>
+<table id="center-tables">
+<tr>
+  <br>
+    <th>Merchant</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
 <% @merchants.each do |merchant| %>
-    <p>Merchant: <%= merchant.name() %></p>
-    <a href="/merchants/<%=merchant.id%>/edit">Edit Merchant</a>
-    <form action="/merchants/<%= merchant.id %>/delete" method="post">
-      <input type="submit" value="Delete" class="btn btn-link"
-      onclick="if (!confirm('Deleting this merchant will delete all associated transactions, are you sure you want to delete?')) { return false }">
-      </form>
+<tr>
+  <td><p><%= merchant.name() %></p></td>
+  <td><a href="/merchants/<%=merchant.id%>/edit">Edit Merchant</a></td>
+  <td><form action="/merchants/<%= merchant.id %>/delete" method="post">
+    <input type="submit" value="Delete" class="btn btn-link"
+    onclick="if (!confirm('Deleting this merchant will delete all associated transactions, are you sure you want to delete?')) { return false }">
+  </form></td>
+</tr>
 <% end %>

@@ -13,6 +13,11 @@ h2 {
   text-align: center;
 }
 
+.labels {
+  display: flex;
+  justify-content: center;
+}
+
 /* html, body {
   margin: 0;
   min-height: 100vh;
@@ -105,6 +110,7 @@ h2 {
   display: flex;
   list-style-type: none;
   justify-content: center;
+  padding-top: 1px;
 }
 
 #transactions {
@@ -129,7 +135,7 @@ h2 {
   color: #ffffff;
 }
 
-#display-dosh {
+#center-tables {
     display: flex;
     vertical-align: middle;
     border-color: inherit;
@@ -138,21 +144,52 @@ h2 {
     margin-bottom: 12px;
 }
 
-#display-dosh {
+#center-tables {
   border-collapse: collapse;
   width: 100%;
 }
 
-#display-dosh td, #display-dosh th {
+#center-tables td, #center-tables th {
   border: 1px solid #dadada;
   padding: 8px;
 }
 
-#display-dosh tr:nth-child(even){background-color: #f2f2f2;}
+#center-tables tr:nth-child(even){background-color: #f2f2f2;}
 
-#display-dosh tr {background-color: #ddd;}
+#center-tables tr {background-color: #ddd;}
 
-#display-dosh th {
+#center-tables th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #009494;
+  color: #ffffff;
+}
+
+#budget-table {
+    display: flex;
+    vertical-align: middle;
+    border-color: inherit;
+    justify-content: center;
+    margin-top: 13px;
+    margin-bottom: 12px;
+}
+
+#budget-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#budget-table td, #budget-table th {
+  border: 1px solid #dadada;
+  padding: 8px;
+}
+
+#budget-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#budget-table tr {background-color: #ddd;}
+
+#budget-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
