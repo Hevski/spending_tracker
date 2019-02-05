@@ -26,33 +26,40 @@
 </div>
 
 <table id="budget-table">
-<tr>
-  <br>
+  <tr>
+    <br>
     <th>Tag</th>
     <th>Budget</th>
+    <th>Warning</th>
     <th>Warning</th>
     <th>Edit</th>
     <th>Delete</th>
   </tr>
-<% @budget.each do |budget| %>
+  <% @budget.each do |budget| %>
   <tr>
-      <td><p><%= budget.tag.category %></p></td>
-      <td><p><%= budget.budget() %></p></td>
-      <td><% if budget.tag.total_for_tags >= budget.budget %>
-      <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <strong>Warning!</strong> You have exceeded your total budget!
-      </div>
-      <% end %>
-      <% if budget.tag.total_for_tags >= (budget.budget / 100 * 75) && budget.tag.total_for_tags <= budget.budget %>
+    <td><p><%= budget.tag.category %></p></td>
+    <td><p><%= budget.budget() %></p></td>
+    <td><% if budget.tag.total_for_tags >= (budget.budget / 100 * 75) && budget.tag.total_for_tags < budget.budget %>
       <div class="amber-alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Warning!</strong> You are close to your budget!
       </div>
       <% end %>
-        </td>
-        <td><a href="/budgets/<%=budget.id%>/edit">Edit</a></td>
-        <td><form action="/budgets/<%= budget.id %>/delete" method="post">
-        <input type="submit" value="Delete"></form></td>
-  </tr>
-<% end %>
+      <% if budget.tag.total_for_tags == budget.budget %>
+      <div class="amber-alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Warning!</strong> You have matched your total budget!
+      </div>
+      <% end %>
+      <% if budget.tag.total_for_tags > budget.budget %>
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Warning!</strong> You have exceeded your total budget!
+      </div>
+      <% end %>
+    </td>
+    <td><a href="/budgets/<%=budget.id%>/edit">Edit</a></td>
+    <td><form action="/budgets/<%= budget.id %>/delete" method="post">
+      <input type="submit" value="Delete"></form></td>
+    </tr>
+    <% end %>

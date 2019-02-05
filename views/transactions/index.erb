@@ -35,13 +35,19 @@
 </tr>
 </table>
 <br>
-<% if Transaction.total_transactions >= Budget.total_budget %>
+<% if Transaction.total_transactions > Budget.total_budget %>
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   <strong>Warning!</strong> You have exceeded your total budget!
 </div>
 <% end %>
-<% if Transaction.total_transactions >= (Budget.total_budget / 100 * 75) && Transaction.total_transactions <= Budget.total_budget %>
+<% if Transaction.total_transactions == Budget.total_budget %>
+<div class="amber-alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Warning!</strong> You have matched your total budget!
+</div>
+<% end %>
+<% if Transaction.total_transactions >= (Budget.total_budget / 100 * 75) && Transaction.total_transactions < Budget.total_budget %>
 <div class="amber-alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   <strong>Warning!</strong> You are almost at your total budget limit!
@@ -72,7 +78,7 @@
 <tr>
   <br>
     <th>Category</th>
-    <th>Total Amount Spent</th>
+    <th>Amount Spent</th>
   </tr>
 <% @tags.each do |tag| %>
 <tr>
