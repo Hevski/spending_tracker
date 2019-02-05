@@ -4,18 +4,23 @@
 }
 
 h1 {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Righteous', cursive;
   font-size: 50px;
   text-align: center;
+  margin-bottom: 0px;
+  padding-top: 7px;
+  padding-bottom: 3px;
 }
 
 h2 {
   text-align: center;
+  padding-top: 10px;
 }
 
 .labels {
   display: flex;
   justify-content: center;
+  size: 30px;
 }
 
 /* html, body {
@@ -32,13 +37,13 @@ h2 {
 }
 
 .alert {
-  padding: 20px;
+  padding: 9px;
   background-color: #f44336;
   color: white;
 }
 
 .amber-alert {
-  padding: 20px;
+  padding: 9px;
   background-color: orange;
   color: white;
 }

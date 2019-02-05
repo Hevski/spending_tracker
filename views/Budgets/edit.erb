@@ -1,20 +1,28 @@
-<h2>Update Budget</h2>
-
-<form method="post" action="/budgets/<%= @budget.id %>">
-
-  <label for="name">Budget Name:</label>
-  <select id="tag" name="tag_id" selected="<%= @budget.tag_id %>">
-    <% Tag.all.each do |tag| %>
-      <% if tag.id == @budget.tag_id %>
+<h1>Update Budget</h1>
+<div class="add-transaction">
+  <form method="post" action="/budgets/<%= @budget.id %>">
+    <div class="form">
+      <li><label for="name">Budget Name:</label></li>
+    </div>
+    <div class="input">
+      <li><select id="tag" name="tag_id" selected="<%= @budget.tag_id %>">
+        <% Tag.all.each do |tag| %>
+        <% if tag.id == @budget.tag_id %>
         <option value=<%= tag.id %> selected><%= tag.category.capitalize %></option>
-      <% else %>
+        <% else %>
         <option value=<%= tag.id %>><%= tag.category.capitalize %></option>
-      <% end %>
-    <% end %>
-  </select>
-  
-
-  <label for="budget">Budget Amount:</label>
-  <input type="budget" name="budget" id="budget" value="<%= @budget.budget %>"/>
-    <input type="submit" value="Update"/>
-</form>
+        <% end %>
+        <% end %>
+      </select></li>
+    </div>
+    <div class="form">
+    <label for="budget">Budget Amount:</label>
+    </div>
+    <div class="input">
+    <li><input type="budget" name="budget" id="budget" value="<%= @budget.budget %>"/></li>
+    </div>
+    <div class="input">
+    <li><input type="submit" value="Update"/></li>
+    </div>
+  </form>
+</div>

@@ -1,3 +1,4 @@
+<h1>Budgets</h1>
 <h2>Add New Budget</h2>
 <div class="add-transaction">
 <form method="post" action="/budgets">
@@ -15,7 +16,7 @@
   <li><label for="budget">Budget Amount:</label></li>
   </div>
   <div class="input">
-  <input type="number" name="budget" id="budget">
+  <input type="number" name="budget" id="budget" required>
   </div>
   <div class="input">
   <li><input type="submit" value="Add Budget"/></li>
@@ -23,34 +24,32 @@
 </form>
 </div>
 
-<h1>Budgets</h1>
 <table id="budget-table">
 <tr>
   <br>
     <th>Tag</th>
     <th>Budget</th>
     <th>Warning</th>
-    <th>Warning</th>
     <th>Edit</th>
     <th>Delete</th>
-
   </tr>
 <% @budget.each do |budget| %>
   <tr>
       <td><p><%= budget.tag.category %></p></td>
       <td><p><%= budget.budget() %></p></td>
-      <td><% if budget.budget <= budget.tag.total_for_tags %></td>
-      <td><div class="alert">
+      <td><% if budget.budget <= budget.tag.total_for_tags %>
+      <div class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Warning!</strong> You have exceeded your total budget!
-      </div></td>
+      </div>
       <% end %>
-      <td><% if (budget.budget / 100 * 75) <= budget.tag.total_for_tags && budget.budget >= budget.tag.total_for_tags  %></td>
-      <td><div class="amber-alert">
+      <% if (budget.budget / 100 * 75) <= budget.tag.total_for_tags && budget.budget >= budget.tag.total_for_tags  %>
+      <div class="amber-alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Warning!</strong> You are close to your budget!
-      </div></td>
+      </div>
       <% end %>
+        </td>
         <td><a href="/budgets/<%=budget.id%>/edit">Edit Budget</a></td>
         <td><form action="/budgets/<%= budget.id %>/delete" method="post">
         <input type="submit" value="Delete"></form></td>
