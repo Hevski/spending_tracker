@@ -9,6 +9,10 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
+
 /* html, body {
   margin: 0;
   min-height: 100vh;
@@ -85,9 +89,23 @@ h1 {
   color: #6dffed;
 }
 
-/* .add-transaction {
+.add-transaction {
   display: flex;
-} */
+  flex-direction: column;
+
+}
+
+.form {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.input {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
 
 #transactions {
   border-collapse: collapse;
@@ -111,8 +129,33 @@ h1 {
   color: #ffffff;
 }
 
-#transactions {
-    display: table-row-group;
+#display-dosh {
+    display: flex;
     vertical-align: middle;
     border-color: inherit;
+    justify-content: center;
+    margin-top: 13px;
+    margin-bottom: 12px;
+}
+
+#display-dosh {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#display-dosh td, #display-dosh th {
+  border: 1px solid #dadada;
+  padding: 8px;
+}
+
+#display-dosh tr:nth-child(even){background-color: #f2f2f2;}
+
+#display-dosh tr {background-color: #ddd;}
+
+#display-dosh th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #009494;
+  color: #ffffff;
 }

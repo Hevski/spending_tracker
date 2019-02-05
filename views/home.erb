@@ -3,27 +3,39 @@
 <h2>Add New Transaction:</h2>
 <div class="add-transaction">
 <form method="post" action="/transactions">
-  <label for="amount_spent">Amount Spent:</label>
-  <input type="number" name="amount_spent" id="amount_spent">
-
-  <label for="merchant_id">Merchant:</label>
-  <select name="merchant_id" id="merchant_id">
+  <div class="form">
+    <li><label for="amount_spent">Amount Spent:</label></li>
+  </div>
+  <div class="input">
+    <li><input type="number" name="amount_spent" id="amount_spent"></li>
+  </div>
+  <div class="form">
+    <li><label for="merchant_id">Merchant:</label></li>
+  </div>
+  <div class="input">
+    <li><select name="merchant_id" id="merchant_id">
     <% @merchants.each do |merchant| %>
       <option value="<%= merchant.id %>"><%= merchant.name %></option>
     <% end %>
-  </select>
-<label for="tag_id">Tag:</label>
-  <select name="tag_id" id="tag_id">
-    <% @tags.each do |tag| %>
-      <option value="<%= tag.id %>"><%= tag.category %></option>
-    <% end %>
-  </select>
-
-  <input type="submit" value="Add">
+  </select></li>
+  </div>
+  <div class="form">
+    <li><label for="tag_id">Tag:</label></li>
+  </div>
+  <div class="input">
+    <li><select name="tag_id" id="tag_id">
+      <% @tags.each do |tag| %>
+        <option value="<%= tag.id %>"><%= tag.category %></option>
+      <% end %>
+    </select></li>
+  </div>
+  <div class="input">
+    <li><input type="submit" value="Add"></li>
+  </div>
 </form>
-</div>
+  </div>
 
-<table id="transactions">
+<table id="display-dosh">
 <tr>
   <th>Total Amount Spent</th>
   <th>Maximum Budget</th>
