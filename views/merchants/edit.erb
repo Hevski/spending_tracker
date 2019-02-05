@@ -4,7 +4,7 @@
 <form method="post" action="/merchants/<%= @merchant.id %>">
   <label for="name">Merchant:</label>
   <input type="text" name="name" id="name" value="<%= @merchant.name %>">
-
   <input type="submit" value="Edit"/>
+  <input type="submit" value="Cancel" href="/merchants">
 </form>
 </div>
