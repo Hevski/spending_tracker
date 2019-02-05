@@ -77,9 +77,4 @@ class Transaction
     total_transactions.each { |transaction| total += transaction.amount_spent }
     return total
   end
-
-  # def total_for_tags()
-  #   total = 0
-  #   total_for_tags =
-  # end
 end

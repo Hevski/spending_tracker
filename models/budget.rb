@@ -71,8 +71,4 @@ class Budget
     total_budget.each { |budget| total += budget.budget }
     return total
   end
-
-  def individual_budget
-  end
-
 end
