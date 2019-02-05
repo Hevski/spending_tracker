@@ -1,6 +1,7 @@
 <h1>FinFrog</h1>
 
 <h2>Add New Transaction:</h2>
+<div class="add-transaction">
 <form method="post" action="/transactions">
   <label for="amount_spent">Amount Spent:</label>
   <input type="number" name="amount_spent" id="amount_spent">
@@ -11,7 +12,7 @@
       <option value="<%= merchant.id %>"><%= merchant.name %></option>
     <% end %>
   </select>
-
+<label for="tag_id">Tag:</label>
   <select name="tag_id" id="tag_id">
     <% @tags.each do |tag| %>
       <option value="<%= tag.id %>"><%= tag.category %></option>
@@ -20,12 +21,18 @@
 
   <input type="submit" value="Add">
 </form>
+</div>
 
-<h3>Total Transactions</h3>
-<p>Total: <%= Transaction.total_transactions %></p>
-
-<h3>Total Budget</h3>
-<p>Total: <%= Budget.total_budget %></p>
+<table id="transactions">
+<tr>
+  <th>Total Amount Spent</th>
+  <th>Maximum Budget</th>
+</tr>
+<tr>
+  <td>£<%= Transaction.total_transactions %></td>
+  <td>£<%= Budget.total_budget %></td>
+</tr>
+</table>
 
 <h2>Alert Messages</h2>
 <% if Transaction.total_transactions >= Budget.total_budget %>

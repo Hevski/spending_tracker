@@ -3,7 +3,6 @@
   margin-top: 0;
 }
 
-
 h1 {
   font-family: 'Lato', sans-serif;
   font-size: 50px;
@@ -22,14 +21,6 @@ h1 {
   background-size: cover;
   height: 100vh;
 }
-
-
-/* .bg {
-  background-image: url('/images/FinFrogpark4.jpg');
-  height: 100%;
-  width: 100%;
-
-} */
 
 .alert {
   padding: 20px;
@@ -94,6 +85,10 @@ h1 {
   color: #6dffed;
 }
 
+/* .add-transaction {
+  display: flex;
+} */
+
 #transactions {
   border-collapse: collapse;
   width: 100%;
@@ -114,4 +109,10 @@ h1 {
   text-align: left;
   background-color: #009494;
   color: #ffffff;
+}
+
+#transactions {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
 }

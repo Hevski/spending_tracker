@@ -1,10 +1,22 @@
 <h1>Transactions:</h1>
+<table id="transactions">
+  <tr>
+    <th>Date</th>
+    <th>Merchant</th>
+    <th>Tag</th>
+    <th>Amount</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
 <% @transactions.each do |transaction| %>
-    <p>Date: <%= transaction.transaction_date %></p>
-    <p>Merchant: <%= transaction.merchant.name %></p>
-    <p>Tag: <%= transaction.tag.category %></p>
-    <p>Amount: <%= transaction.amount_spent %></p>
-    <a href="/transactions/<%=transaction.id%>/edit">Edit</a>
-    <form action="/transactions/<%= transaction.id %>/delete" method="post">
-    <input type="submit" value="Delete"/></form>
+<tr>
+  <td><p><%= transaction.transaction_date %></p></td>
+  <td><p><%= transaction.merchant.name %></p></td>
+  <td><p><%= transaction.tag.category %></p></td>
+  <td><p>£<%= transaction.amount_spent %></p></td>
+  <td><div class="edit-delete"><a href="/transactions/<%=transaction.id%>/edit">Edit</a></td>
+  <form action="/transactions/<%= transaction.id %>/delete" method="post">
+  <td><input type="submit" value="Delete"/></td></form>
+</tr>
 <% end %>
+</table>
