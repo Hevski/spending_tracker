@@ -58,7 +58,15 @@ h2 {
 
 .amber-alert {
   padding: 25px;
-  background-color: #ff6a00;
+  background-color: #ff8100;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
+
+.yellow-alert {
+  padding: 25px;
+  background-color: #ffc800;
   color: white;
   font-family: 'Lato', sans-serif;
   font-size: 20px;
@@ -247,4 +255,45 @@ h2 {
   text-align: left;
   background-color: #009494;
   color: #ffffff;
+}
+
+#transaction-tables {
+    display: flex;
+    vertical-align: middle;
+    border-color: inherit;
+    justify-content: center;
+    margin-top: 13px;
+    margin-bottom: 12px;
+    margin-left: 2px;
+}
+
+#transaction-tables {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#transaction-tables td, #transaction-tables th {
+  border: 1px solid #dadada;
+  padding: 8px;
+}
+
+#transaction-tables tr:nth-child(even){background-color: #f2f2f2;}
+
+#transaction-tables tr {background-color: #ddd;}
+
+#transaction-tables th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #009494;
+  color: #ffffff;
+}
+
+#transaction-tables a {
+  text-decoration: none;
+}
+
+.tag-merch-table {
+  display: flex;
+  flex-direction: row;
 }

@@ -48,7 +48,7 @@
 </div>
 <% end %>
 <% if Transaction.total_transactions >= (Budget.total_budget / 100 * 75) && Transaction.total_transactions < Budget.total_budget %>
-<div class="amber-alert">
+<div class="yellow-alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   <strong>Warning!</strong> You are almost at your total budget limit!
 </div>
@@ -74,7 +74,8 @@
   </tr>
 <% end %>
 </table>
-<table id="center-tables">
+<div class="tag-merch-table">
+<table id="transaction-tables">
 <tr>
   <br>
     <th>Category</th>
@@ -87,7 +88,7 @@
 </tr>
 <% end %>
 </table>
-<table id="center-tables">
+<table id="transaction-tables">
 <tr>
   <br>
     <th>Merchant</th>
@@ -100,3 +101,4 @@
 </tr>
 <% end %>
 </table>
+</div>
