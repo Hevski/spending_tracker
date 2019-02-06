@@ -31,7 +31,6 @@
     <th>Tag</th>
     <th>Budget</th>
     <th>Warning</th>
-    <th>Warning</th>
     <th>Edit</th>
     <th>Delete</th>
   </tr>
@@ -39,7 +38,8 @@
   <tr>
     <td><p><%= budget.tag.category %></p></td>
     <td><p><%= budget.budget() %></p></td>
-    <td><% if budget.tag.total_for_tags >= (budget.budget / 100 * 75) && budget.tag.total_for_tags < budget.budget %>
+    <td>
+      <% if budget.tag.total_for_tags >= (budget.budget / 100 * 75) && budget.tag.total_for_tags < budget.budget %>
       <div class="amber-alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Warning!</strong> You are close to your budget!

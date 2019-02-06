@@ -87,3 +87,16 @@
 </tr>
 <% end %>
 </table>
+<table id="center-tables">
+<tr>
+  <br>
+    <th>Merchant</th>
+    <th>Amount Spent</th>
+  </tr>
+<% @merchants.each do |merchant| %>
+<tr>
+    <td><p><%= merchant.name %></p></td>
+    <td><p><%= merchant.total_for_merchants %></p></td>
+</tr>
+<% end %>
+</table>

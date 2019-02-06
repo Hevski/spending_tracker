@@ -64,4 +64,11 @@ class Merchant
     transactions = SqlRunner.run(sql, values)
     return transactions.map { |transaction| Transaction.new(transaction) }
   end
+
+  def total_for_merchants()
+    total = 0
+    transactions = transactions_for_merchant()
+    transactions.each { |transaction| total += transaction.amount_spent()}
+    return total
+  end
 end
