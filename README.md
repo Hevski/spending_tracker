@@ -1,5 +1,8 @@
 SPEC
 
+For budget warnings 75% to < 100% only:
+Must add floats set to 2 decimal points as there is a bug in warnings when a new budget is added below £100 - (budget.budget / 100 * 75) if < 100 will always calculate to 0 as a float rounds down. Either that or delete this warning.
+
 # spending_tracker
 First project at codeclan, a solo project using Ruby, psql, Sinatra, HTML &amp; CSS
 
